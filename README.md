@@ -36,7 +36,7 @@ _For most current list see `Dockerfile`_.
 3. `sample` folder provides a sample of project using this image as a development container.
 4. Open `sample` in VS Code
 5. When prompted, select "Reopen in Container"
-6. VS Code will initialize and start the container automatically
+6. VS Code will initialize and start the container automatically.
 
 ### Manual Docker Usage
 
