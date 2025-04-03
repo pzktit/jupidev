@@ -12,20 +12,22 @@ The CryptoDev environment includes a pre-configured Docker setup that combines a
 
 - Jupyter Notebook/Lab environment
 - Pre-installed cryptography libraries:
-
-  - `cryptography`
-  - `pycryptodome`
+    - `cryptography`
+    - `pycryptodome`
 
 - Mathematical libraries:
-  - `numpy`
-  - `matplotlib`
-- Qiskit
-- Development tools:
-  - Git
-  - Python 3
-  - Common development utilities
+      - `numpy`
+      - `matplotlib`
 
-_For most current list see `Dockerfile`_.
+- Qiskit
+
+- Development tools:
+    - Git
+    - Python 3
+    - Common development utilities
+
+
+_For most current list of tools see `Dockerfile`_.
 
 ## Usage
 
@@ -38,9 +40,10 @@ _For most current list see `Dockerfile`_.
 5. When prompted, select "Reopen in Container"
 6. VS Code will initialize and start the container automatically.
 
-### Manual Docker Usage
+### Build the image locally
 
-To build the image yourself:
+Normally the image is build with GitHub action and is available as `ghcr.io/username/reponame`, i.e. `ghcr.io/pzktit/jupilab`.
+You can build it locally too
 
 1. Introduce required modifications to `Dockerfile`.
 2. Build the image
@@ -56,7 +59,20 @@ docker login
 docker push username/image_name
 ```
 
-4. Update `sample/.devcontainer/devcontainer.json` to use your image.
+Then update `.devcontainer/devcontainer.json` to use your version of the image.
+
+ 
+### Manual Docker Usage
+
+To image contains `Jupyter Notebook` and `Jupyter Lab`. To run any of these please do
+```bash
+docker run -it --rm \
+  -p 127.0.0.1:8888:8888 \
+  -v "$PWD:/home/vscode/workspace" \
+  jupilab \
+  jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --allow-root --NotebookApp.token=''
+```
+Then point your browser to [http://127.0.0.1:8888](http://127.0.0.1:8888).
 
 ## License
 
