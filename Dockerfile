@@ -11,6 +11,7 @@ RUN apt-get update && \
         curl \
         bash \
         ca-certificates \
+        inotify-tools \
         imagemagick \
         librsvg2-bin \
         tar \

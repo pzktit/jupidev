@@ -42,7 +42,7 @@ _For most current list of tools see `Dockerfile`_.
 
 ### Build the image locally
 
-Normally the image is build with GitHub action and is available as `ghcr.io/username/reponame`, i.e. `ghcr.io/pzktit/jupilab`.
+Normally the image is build with GitHub action and is available as `ghcr.io/username/reponame:main`, i.e. `ghcr.io/pzktit/jupilab:main`.
 You can build it locally too
 
 1. Introduce required modifications to `Dockerfile`.
@@ -69,7 +69,8 @@ To image contains `Jupyter Notebook` and `Jupyter Lab`. To run any of these plea
 docker run -it --rm \
   -p 127.0.0.1:8888:8888 \
   -v "$PWD:/home/vscode/workspace" \
-  jupilab \
+  -w /home/vscode/workspace \
+  ghcr.io/pzktit/jupidev:main \
   jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --allow-root --NotebookApp.token=''
 ```
 Then point your browser to [http://127.0.0.1:8888](http://127.0.0.1:8888).
