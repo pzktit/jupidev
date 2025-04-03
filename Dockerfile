@@ -36,8 +36,8 @@ RUN curl -L -o /tmp/d2.tar.gz https://github.com/terrastruct/d2/releases/downloa
     rm /tmp/d2.tar.gz
 
 # Install local script into PATH
-COPY watch_d2_convert /usr/local/bin/watch_d2_convert
-RUN chmod +x /usr/local/bin/watch_d2_convert
+COPY d2watch /usr/local/bin/d2watch
+RUN chmod +x /usr/local/bin/d2watch
 
 USER vscode
 
